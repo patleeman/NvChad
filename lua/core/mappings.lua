@@ -36,7 +36,7 @@ M.general = {
 
     -- line numbers
     ["<leader>n"] = { "<cmd> set nu! <CR>", "toggle line number" },
-    ["<leader>rn"] = { "<cmd> set rnu! <CR>", "toggle relative number" },
+    ["<leader>rn"] = { "<cmd> set rnu! <CR>", "toggle r lative number" },
 
     -- update nvchad
     ["<leader>uu"] = { "<cmd> :NvChadUpdate <CR>", "update nvchad" },
@@ -50,7 +50,7 @@ M.general = {
 
     -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
     -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
-    -- empty mode is same as using <cmd> :map
+    -- empty mode is same as using <cmd> :eap
     -- also don't use g[j|k] when in operator pending mode, so it doesn't alter d, y or c behaviour
     ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
     ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
@@ -61,7 +61,7 @@ M.general = {
     ["<leader>b"] = { "<cmd> enew <CR>", "new buffer" },
   },
 
-  t = { ["<C-x>"] = { termcodes "<C-\\><C-N>", "escape terminal mode" } },
+  t = { ["<esc>"] = { termcodes "<C-\\><C-N>", "escape terminal mode" } },
 
   v = {
     ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
@@ -328,6 +328,7 @@ M.nvterm = {
         require("nvterm.terminal").toggle "float"
       end,
       "toggle floating term",
+
     },
 
     ["<A-h>"] = {
