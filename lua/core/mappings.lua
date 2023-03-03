@@ -63,7 +63,7 @@ M.general = {
     -- Open lazygit
     ["<leader>gg"] = {
       function()
-        local term = require("nvterm.terminal").new("float")
+        local term = require("nvterm.terminal").new("vertical")
         vim.api.nvim_chan_send(term.job_id, "lazygit\n")
       end,
       "open Lazygit",
