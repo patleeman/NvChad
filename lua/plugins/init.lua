@@ -158,7 +158,7 @@ local plugins = {
     end,
   },
 
-  ["numToStr/Comment.nvim"] = {
+ ["numToStr/Comment.nvim"] = {
     module = "Comment",
     keys = { "gc", "gb" },
     config = function()
@@ -190,6 +190,8 @@ local plugins = {
       require("core.utils").load_mappings "telescope"
     end,
   },
+
+  ["kdheepak/lazygit.nvim"] = {},
 
   -- Only load whichkey after all the gui
   ["folke/which-key.nvim"] = {
