@@ -60,14 +60,15 @@ M.general = {
     -- new buffer
     ["<leader>b"] = { "<cmd> enew <CR>", "new buffer" },
 
-    -- Open lazygit
-    ["<leader>gg"] = {
-      function()
-        local term = require("nvterm.terminal").new("vertical")
-        vim.api.nvim_chan_send(term.job_id, "lazygit\n")
-      end,
-      "open Lazygit",
-    },
+    -- Lazygit
+    ["<leader>gg"] = { ":LazyGit<CR>" },
+
+    -- Insert date
+    ["<leader>dd"] = {"i<C-R>=strftime(\"%Y-%m-%d\")<CR><Esc>"},
+    ["<leader>dt"] = {"i<C-R>=strftime(\"%Y-%m-%d %a %I:%M %p\")<CR><Esc>"},
+
+    ["<leader>\\"] = {":split"},
+    ["<leader>-"] = {":vsplit"},
   },
 
   t = { ["<C-x>"] = { termcodes "<C-\\><C-N>", "escape terminal mode" } },
@@ -271,10 +272,10 @@ M.nvimtree = {
 
   n = {
     -- toggle
-    ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
+    ["<leader>fn"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
 
     -- focus
-    ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "focus nvimtree" },
+    -- ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "focus nvimtree" },
   },
 }
 
@@ -289,17 +290,20 @@ M.telescope = {
     ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
     ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "help page" },
     ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "find oldfiles" },
-    ["<leader>tk"] = { "<cmd> Telescope keymaps <CR>", "show keys" },
+    ["<leader>fk"] = { "<cmd> Telescope keymaps <CR>", "show keys" },
 
     -- git
-    ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
-    ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "git status" },
+    ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
+    ["<leader>gs"] = { "<cmd> Telescope git_status <CR>", "git status" },
 
     -- pick a hidden term
     ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "pick hidden term" },
 
     -- theme switcher
     ["<leader>th"] = { "<cmd> Telescope themes <CR>", "nvchad themes" },
+
+    -- File browser
+    ["<leader>fn"] = { "<cmd> Telescope file_browser path=%:p:h select_buffer=true <CR>", "file browser" },
   },
 }
 
