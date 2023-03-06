@@ -57,9 +57,15 @@ local options = {
     mappings = {
       n = { ["q"] = require("telescope.actions").close },
     },
+    extensions = {
+      file_browser = {
+        theme = "ivy",
+        hijack_netrw = true,
+      }
+    }
   },
 
-  extensions_list = { "themes", "terms" },
+  extensions_list = { "themes", "terms", "file_browser" },
 }
 
 -- check for any override
