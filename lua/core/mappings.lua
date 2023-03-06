@@ -67,8 +67,8 @@ M.general = {
     ["<leader>dd"] = {"i<C-R>=strftime(\"%Y-%m-%d\")<CR><Esc>"},
     ["<leader>dt"] = {"i<C-R>=strftime(\"%Y-%m-%d %a %I:%M %p\")<CR><Esc>"},
 
-    ["<leader>\\"] = {":split"},
-    ["<leader>-"] = {":vsplit"},
+    ["<leader>\\"] = {":split <CR>"},
+    ["<leader>-"] = {":vsplit <CR>"},
   },
 
   t = { ["<C-x>"] = { termcodes "<C-\\><C-N>", "escape terminal mode" } },
@@ -273,6 +273,7 @@ M.nvimtree = {
   n = {
     -- toggle
     ["<leader>fn"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
+    ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
 
     -- focus
     -- ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "focus nvimtree" },
@@ -301,9 +302,6 @@ M.telescope = {
 
     -- theme switcher
     ["<leader>th"] = { "<cmd> Telescope themes <CR>", "nvchad themes" },
-
-    -- File browser
-    ["<leader>fn"] = { "<cmd> Telescope file_browser path=%:p:h select_buffer=true <CR>", "file browser" },
   },
 }
 

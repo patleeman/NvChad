@@ -10,6 +10,18 @@ local HEIGHT_RATIO = 0.8 -- You can change this
 local WIDTH_RATIO = 0.5  -- You can change this too
 
 local options = {
+  on_attach = function(bufnr)
+    local api = require('nvim-tree.api')
+
+    local function opts(desc)
+      return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    end
+
+    api.config.mappings.default_on_attach(bufnr)
+
+    -- your removals and mappings go here
+    vim.keymap.set('n', '<ESC>', api.tree.close, opts('Close Tree'))
+  end,
   filters = {
     dotfiles = false,
     exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
@@ -51,9 +63,10 @@ local options = {
     width = function()
       return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
     end,
-  },  git = {
-    enable = false,
-    ignore = true,
+  },
+  git = {
+    enable = true,
+    -- ignore = true,
   },
   filesystem_watchers = {
     enable = true,
