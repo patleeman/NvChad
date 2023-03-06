@@ -85,6 +85,11 @@ local plugins = {
     end,
   },
 
+  ["nvim-orgmode/orgmode"] = {
+    config = function()
+      require('plugins.configs.orgmode')
+    end
+  },
   -- git stuff
   ["lewis6991/gitsigns.nvim"] = {
     ft = "gitcommit",
