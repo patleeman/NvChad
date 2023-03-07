@@ -17,6 +17,9 @@ M.general = {
     ["<C-l>"] = { "<Right>", "move right" },
     ["<C-j>"] = { "<Down>", "move down" },
     ["<C-k>"] = { "<Up>", "move up" },
+
+    -- jj to escape
+    ["jj"] = { "<ESC>", "remap escape to jj" },
   },
 
   n = {
